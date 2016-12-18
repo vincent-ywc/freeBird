@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <title>Document</title>
+</head>
+<body>
+<canvas id="cv"></canvas>
+
+<script src="js/Fly.js"></script>
+<script src="js/loadImage.js"></script>
+<script src="js/Bird.js"></script>
+<script src="js/Sky.js"></script>
+<script src="js/Land.js"></script>
+<script src="js/Pipe.js"></script>
+<script src="js/Game.js"></script>
+<script>
+        var cv = document.querySelector("#cv");
+        cv.width = 800;
+        cv.height = 600;
+        cv.style.border = "1px solid red";
+
+        var ctx = cv.getContext("2d");
+
+        var game=new Fly.Game({
+            ctx:ctx
+        });
+        game.start();
+
+
+
+
+
+//        var imgsSrcArr=["birds","land","pipe1","pipe2","sky"];
+//        var roles=[];
+//        var lastFrameTime=new Date();
+//        var curFrameTime= 0;
+//        var delta= 0;
+//        var isRuning=false;
+//
+//        Fly.imgLoad(imgsSrcArr, function (imgList) {
+//          var skyImg=imgList["sky"];
+//          var pipeUp=imgList["pipe2"];
+//          var pipeDown=imgList["pipe1"];
+//          var landImg=imgList["land"];
+//          var birdImd=imgList["birds"];
+//            for(var i=0;i<2;i++){
+//                var sky=new Fly.sky({
+//                    ctx:ctx,
+//                    img:skyImg,
+//                    x:i*skyImg.width
+//                });
+//            roles.push(sky);
+//            };
+//
+//
+//            for(var i=0;i<6;i++){
+//                var pipe=new Fly.Pipe({
+//                    ctx:ctx,
+//                    imgUp:pipeUp,
+//                    imgDown:pipeDown,
+//                    x:i*3*pipeUp.width+300
+//                });
+//                roles.push(pipe);
+//            }
+//
+//
+//            for(var i=0;i<4;i++){
+//                var land=new Fly.Land({
+//                    ctx:ctx,
+//                    img:landImg,
+//                    x:i*landImg.width,
+//                    y:cv.height-landImg.height
+//                });
+//                roles.push(land);
+//            };
+//
+//            var bird=new Fly.Bird({
+//                "ctx":ctx,
+//                "img":birdImd
+//            });
+//
+//            isRuning=true;
+//            (function render() {
+//                ctx.beginPath();
+//                ctx.clearRect(0,0,cv.width,cv.height);
+//                curFrameTime=new Date();
+//                delta=curFrameTime-lastFrameTime;
+//                lastFrameTime=curFrameTime;
+//
+//                roles.forEach(function (role) {
+//                    role.draw(delta);
+//                })
+//
+//                bird.draw(delta);
+//
+//                if(bird.y<0 || bird.y>=cv.height-landImg.height-10 || ctx.isPointInPath(bird.x,bird.y)){
+//                    isRuning=false;
+//                }
+//
+//                if(isRuning){
+//                    requestAnimationFrame(render);
+//                }
+//
+//                //绑定canvas单机事件让小鸟晚上走
+//                cv.addEventListener("click", function () {
+//                    bird.speed=-.3;
+//                })
+//            })()
+//        })
+
+</script>
+</body>
+</html>
